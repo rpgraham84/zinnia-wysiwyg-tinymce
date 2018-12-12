@@ -1,13 +1,15 @@
 """EntryAdmin for zinnia-tinymce"""
 from django.contrib import admin
-from django.core.urlresolvers import reverse
 from django.forms import Media
-
 from tinymce.widgets import TinyMCE
-
 from zinnia.admin.entry import EntryAdmin
 from zinnia.models import Entry
 from zinnia.settings import ENTRY_BASE_MODEL
+
+try:
+    from django.urls import reverse
+except ImportError:
+    from django.core.urlresolvers import reverse
 
 
 class EntryAdminTinyMCEMixin(object):
